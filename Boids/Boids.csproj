@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B35A4869-FBF9-4A6E-BC4E-37BDDECFA7B9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Boids</RootNamespace>
+    <AssemblyName>Boids</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\TestDriven.NET 3\NUnit\2.5\framework\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasicMapView.cs" />
+    <Compile Include="Boid.cs" />
+    <Compile Include="BoidControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BoidControls.Designer.cs">
+      <DependentUpon>BoidControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boids_Factory.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="Flock.cs" />
+    <Compile Include="Interfaces\BoidRule_Interface.cs" />
+    <Compile Include="Interfaces\Boid_Interface.cs" />
+    <Compile Include="Interfaces\Direction_Interface.cs" />
+    <Compile Include="Interfaces\Flock_Interface.cs" />
+    <Compile Include="BoidForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoidForm.Designer.cs">
+      <DependentUpon>BoidForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\MapView.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\BoundPosition_Rule.cs" />
+    <Compile Include="Rules\CentreOfFlock_Rule.cs" />
+    <Compile Include="Rules\DistanceFromBoids_Rule.cs" />
+    <Compile Include="Rules\LimitSpeed_Rule.cs" />
+    <Compile Include="Rules\MatchVelocity_Rule.cs" />
+    <Compile Include="Rules\Wind_Rule.cs" />
+    <Compile Include="Tests\BoidControls_Test.cs" />
+    <Compile Include="Tests\BoidsFactory_Test.cs" />
+    <Compile Include="Tests\Boid_Test.cs" />
+    <Compile Include="Tests\Direction_Test.cs" />
+    <Compile Include="Tests\Rule Tests\CentreOfFlock_Test.cs" />
+    <Compile Include="Tests\Flock_Test.cs" />
+    <Compile Include="Tests\Rule Tests\DistancefromBoids_Test.cs" />
+    <Compile Include="Tests\Rule Tests\MatchVelocity_Test.cs" />
+    <Compile Include="Vector2.cs" />
+    <EmbeddedResource Include="BoidControls.resx">
+      <DependentUpon>BoidControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoidForm.resx">
+      <DependentUpon>BoidForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
